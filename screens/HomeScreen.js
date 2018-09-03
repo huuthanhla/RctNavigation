@@ -18,7 +18,7 @@ export default class HomeScreen extends Component {
         <Button 
           title='Push Me'
           onPress={() => {
-            navigate('Detail', { username: 'React Native' })
+            navigate('ChatScreen', { titleNav: 'ChatScreen' })
           }}
         />
           
