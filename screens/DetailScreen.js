@@ -1,15 +1,17 @@
 
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button, Image} from 'react-native';
 
 export default class DetailScreen extends Component {
 
-  // static navigationOptions = ({navigation}) => ({
-  //   title: `${navigation.state.params.username}`,
-  //   headerRight: <Button title='Info'
-  //     onPress={() => {} }
-  //   />
-  // })
+  static navigationOptions = ({navigation}) => ({
+    tabBarLabel: 'Profile',
+    tabBarIcon: ({tintColor}) => (
+      <Image source={require('../imgs/profile.png')} 
+        style={[styles.icon, {tintColor: tintColor}]}
+      />
+    )
+  })
 
   render() {
 

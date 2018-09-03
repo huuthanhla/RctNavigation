@@ -5,10 +5,7 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 export default class ChatScreen extends Component {
 
   static navigationOptions = ({navigation}) => ({
-    title: `${navigation.state.params.titleNav}`,
-    headerRight: <Button title='Info'
-      onPress={() => {} }
-    />
+    title: 'Chat'
   })
 
   render() {
@@ -34,6 +31,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#15F097',
+    backgroundColor: '#CDDC39',
   }
 });

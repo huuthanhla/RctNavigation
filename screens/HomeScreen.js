@@ -1,14 +1,32 @@
 
 import React, {Component} from 'react';
-import { StyleSheet, Button, View} from 'react-native';
+import { 
+  StyleSheet, 
+  Button, 
+  View,
+  TouchableOpacity,
+  Image
+} from 'react-native';
+
+const MenuButtons = (props) => (
+  <TouchableOpacity onPress = {() => {props.navigation.openDrawer()} }>
+    <Image tintColor='black' style={{marginLeft: 15}} source={require('../imgs/hamburger.png')} />
+  </TouchableOpacity>
+)
 
 export default class HomeScreen extends Component {
 
-  static navigationOptions = {
-    title: 'Home',
+  static navigationOptions = ({navigation}) => ({
+    title: 'React Native',
     headerBackTitle: null,
-    headerTintColor: 'orange'
-  }
+    tabBarLabel: "Home",
+    headerLeft: <MenuButtons navigation={navigation}/>,
+    tabBarIcon: ({tintColor}) => (
+      <Image source={require('../imgs/home.png')} 
+        style={[styles.icon, {tintColor: tintColor}]}
+      />
+    )
+  })
 
   render() {
     const { navigate } = this.props.navigation;
