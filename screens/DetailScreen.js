@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Button, Image} from 'react-native';
 export default class DetailScreen extends Component {
 
   static navigationOptions = ({navigation}) => ({
-    tabBarLabel: 'Profile',
+    tabBarLabel: 'Detail',
     tabBarIcon: ({tintColor}) => (
       <Image source={require('../imgs/profile.png')} 
         style={[styles.icon, {tintColor: tintColor}]}

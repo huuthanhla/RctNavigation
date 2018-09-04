@@ -19,13 +19,7 @@ export default class HomeScreen extends Component {
   static navigationOptions = ({navigation}) => ({
     title: 'React Native',
     headerBackTitle: null,
-    tabBarLabel: "Home",
     headerLeft: <MenuButtons navigation={navigation}/>,
-    tabBarIcon: ({tintColor}) => (
-      <Image source={require('../imgs/home.png')} 
-        style={[styles.icon, {tintColor: tintColor}]}
-      />
-    )
   })
 
   render() {

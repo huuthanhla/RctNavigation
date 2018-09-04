@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Image } from 'react-native';
 import { 
   createStackNavigator, 
-  createTabNavigator ,
-  createDrawerNavigator
+  createDrawerNavigator,
+  createBottomTabNavigator
 } from 'react-navigation';
 
 import HomeScreen from './screens/HomeScreen'
@@ -59,20 +59,28 @@ const MyStackNavigator = createStackNavigator({
   ChatScreen: {screen: ChatScreen}
 })
 
-const MyTabNavigator = createTabNavigator(
+const bottomTabNavigator = createBottomTabNavigator(
   {
     Home: { screen: MyStackNavigator },
     Detail: { screen: DetailScreen }
   },
   {
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        return <Image source={require('./imgs/home.png')} 
+          style={[{tintColor: tintColor}]}
+        />;
+      },
+    }),
     tabBarOptions: {
-      activeTintColor: 'green'
-    }    
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray',
+    },
   }
 );
 
 const MyDrawerNavigator = createDrawerNavigator({
-  Home: {screen: MyTabNavigator},
+  Home: {screen: bottomTabNavigator},
   Detail: { screen: DetailScreen }
 }, {
   contentComponent: props => <MenuScreen {...props} />
